@@ -15,7 +15,7 @@ export function useTariffLogic() {
     const [tariffs, setTariffs] = useState<Tariff[]>([]);
     const [loading, setLoading] = useState(true);
     const [selectedId, setSelectedId] = useState<string | null>(null);
-    const [timeLeft, setTimeLeft] = useState(5); // 2 minutes
+    const [timeLeft, setTimeLeft] = useState(120); // 2 minutes
     const [discountActive, setDiscountActive] = useState(true);
     const [consent, setConsent] = useState(false);
     const [showError, setShowError] = useState(false);
