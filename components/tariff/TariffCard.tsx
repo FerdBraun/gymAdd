@@ -30,8 +30,8 @@ export const TariffCard: React.FC<TariffCardProps> = ({
     return (
         <div
             onClick={onSelect}
-            className={`relative overflow-hidden rounded-[2.2rem] border-2 transition-all duration-300 cursor-pointer w-full shadow-lg ${borderClass(isSelected)}
-                ${tariff.is_best ? "min-h-[160px]" : "min-h-[140px] lg:min-h-[240px]"}
+            className={`relative overflow-hidden rounded-[2.2rem] border-2 transition-all  duration-300 cursor-pointer w-full shadow-lg ${borderClass(isSelected)}
+                ${tariff.is_best ? "min-h-40" : "min-h-35 lg:min-h-60 lg:max-w-50"}
             `}
         >
             {/* Top-left discount badge */}
@@ -47,14 +47,14 @@ export const TariffCard: React.FC<TariffCardProps> = ({
             )}
 
             {/* Content Container */}
-            <div className={`flex gap-4 h-full
+            <div className={`flex gap-4 h-full 
                 ${tariff.is_best
                     ? "flex-row items-center justify-between px-6 py-8 lg:px-10 lg:py-10"
-                    : "flex-row items-center lg:flex-col lg:items-start lg:justify-between px-6 py-6 lg:px-8 lg:pt-12 lg:pb-9"}
+                    : "flex-row items-center lg:flex-col lg:items-center lg:justify-between px-6 py-6 lg:px-8 lg:pt-12 lg:pb-9"}
             `}>
 
                 {/* Section A: Title + Price */}
-                <div className={`flex flex-col items-start gap-1 shrink-0
+                <div className={`flex flex-col items-center gap-1 shrink-0
                     ${!tariff.is_best ? "lg:mb-4" : ""}
                 `}>
                     <p className="text-white/60 text-[15px] lg:text-[17px] font-medium leading-none mb-1">

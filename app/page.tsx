@@ -7,11 +7,7 @@ import { TariffHeader } from "@/components/tariff/TariffHeader";
 import { TariffCard } from "@/components/tariff/TariffCard";
 import { FooterForm, GuaranteeBlock } from "@/components/tariff/FooterForm";
 
-/**
- * Unified Responsive Page:
- * - Desktop (1024px+): Two-column layout with man on the left.
- * - Mobile/Tablet: Single-column layout with man centered on top.
- */
+
 export default function UnifiedPage() {
   const logic = useTariffLogic();
   const { tariffs, loading, selectedId, setSelectedId, discountActive } = logic;
@@ -29,21 +25,20 @@ export default function UnifiedPage() {
     .sort((a, b) => b.full_price - a.full_price);
 
   return (
-    <div className="min-h-screen bg-[#0a0a0a] flex flex-col items-center justify-start lg:justify-center p-2 sm:p-4 lg:p-8 overflow-x-hidden">
+    <div className="min-h-screen bg-[#0a0a0a] flex flex-col items-center justify-start lg:justify-center   overflow-x-hidden">
       <TariffHeader timeLeft={logic.timeLeft} formatTime={logic.formatTime} />
 
       {/* Container */}
-      <div className="w-full max-w-[1200px] bg-[#222] rounded-[2.5rem] lg:rounded-[3.5rem] overflow-hidden shadow-2xl mt-16 md:mt-20 lg:mt-24 relative">
-        <main className="px-5 sm:px-10 lg:px-20 pt-10 sm:pt-12 lg:pt-16 pb-16 sm:pb-20">
-          <h1 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-center mb-10 lg:mb-16 tracking-tight text-white px-2">
+      <div className="w-full bg-[#222]  relative">
+        <main className="px-5 sm:px-10 lg:px-20 pt-10 sm:pt-12 lg:pt-16 pb-16 sm:pb-20  max-w-300 rounded-[2.5rem] justify-self-center lg:rounded-[3.5rem] overflow-hidden shadow-2xl mt-16 md:mt-20 lg:mt-24" >
+          <h1 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-left mb-10 lg:mb-16 tracking-tight text-white px-2">
             Выбери подходящий для себя <span className="text-orange-400">тариф</span>
           </h1>
 
-          <div className="flex flex-col lg:flex-row gap-8 lg:gap-16 items-center lg:items-start relative">
+          <div className="flex flex-col lg:flex-row gap-8 lg:gap-16 items-center mt-11 lg:items-start relative">
 
             {/* ── Man image ── */}
-            {/* Mobile: Centered on top. Desktop: Side. */}
-            <div className="block w-full max-w-[200px] sm:max-w-[240px] lg:max-w-[400px] h-auto relative mb-6 lg:mb-[-100px] lg:shrink-0 lg:sticky lg:top-0">
+            <div className="block w-full max-w-50 sm:max-w-60 lg:max-w-70  h-auto relative mb-6 lg:mt-40 lg:-mb-25 lg:shrink-0 lg:sticky lg:top-50">
               <Image
                 src="/freepik-export.svg"
                 alt="Fitness coach"
