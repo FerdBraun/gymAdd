@@ -29,7 +29,7 @@ export default function UnifiedPage() {
       <TariffHeader timeLeft={logic.timeLeft} formatTime={logic.formatTime} />
 
       {/* Main Content Title */}
-      <h1 className="text-[40px] font-extrabold text-white mb-27.5 mr-90 max-[1244px]:mr-0 max-[1244px]:mb-10 text-center">
+      <h1 className="text-[40px] font-extrabold font-semibold text-white mb-27.5 mr-90 max-[1244px]:mr-0 max-[1244px]:mb-10 text-center">
         Выбери подходящий для себя <span className="text-[#f8a04b]">тариф</span>
       </h1>
 

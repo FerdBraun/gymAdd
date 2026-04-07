@@ -13,7 +13,7 @@ interface TariffCardProps {
 const borderClass = (selected: boolean) =>
     selected
         ? "border-orange-500 bg-[#2d2d2d]"
-        : "border-[#333] bg-[#1a1a1a] hover:border-[#444]";
+        : "border-[#484D4E] bg-[#1a1a1a] hover:border-[#444]";
 
 export const TariffCard: React.FC<TariffCardProps> = ({
     tariff,
@@ -26,6 +26,8 @@ export const TariffCard: React.FC<TariffCardProps> = ({
     // ─── Shared Layout ──────────────────────────────────────────
     // On Mobile: Both Featured and Regular are horizontal (Price L, Text R)
     // On Desktop (lg): Featured is horizontal, Regular is vertical (Price top, Text bottom)
+
+
 
     return (
         <div
