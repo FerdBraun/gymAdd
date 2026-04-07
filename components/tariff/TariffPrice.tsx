@@ -10,7 +10,7 @@ interface TariffPriceProps {
     className?: string;
 }
 
-export const TariffPrice: React.FC<TariffPriceProps> = ({
+export function TariffPrice({
     price,
     fullPrice,
     discountActive,
@@ -18,7 +18,7 @@ export const TariffPrice: React.FC<TariffPriceProps> = ({
     orange = false,
     alignClasses = "items-start text-left",
     className = "",
-}) => {
+}: TariffPriceProps) {
     const priceSize =
         size === "lg" ? "text-5xl" : size === "sm" ? "text-2xl" : "text-4xl";
     const oldSize =
