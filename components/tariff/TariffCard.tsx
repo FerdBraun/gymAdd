@@ -30,56 +30,60 @@ export const TariffCard: React.FC<TariffCardProps> = ({
     return (
         <div
             onClick={onSelect}
-            className={`relative overflow-hidden rounded-[2.2rem] border-2 transition-all  duration-300 cursor-pointer w-full shadow-lg ${borderClass(isSelected)}
-                ${tariff.is_best ? "min-h-40" : "min-h-35 lg:min-h-60 lg:max-w-50"}
-            `}
+            className={`relative overflow-hidden bg-[#313637] rounded-[2.2rem] border-2 transition-all duration-300 cursor-pointer shadow-lg ${borderClass(isSelected)}`}
+            style={{
+                width: tariff.is_best ? '748px' : '240px',
+                height: tariff.is_best ? '190px' : '335px',
+                flexShrink: 0
+            }}
         >
             {/* Top-left discount badge */}
             <div className={`absolute top-0 left-0 z-10 transition-all duration-500 ${discountActive ? "opacity-100" : "opacity-0 pointer-events-none"}`}>
                 <TariffBadge type="discount" value={discount} />
             </div>
 
-            {/* Top-right "хит!" */}
-            {tariff.is_best && (
-                <div className="absolute top-4 right-6 lg:top-5 lg:right-8 z-10">
-                    <TariffBadge type="hit" />
-                </div>
-            )}
-
             {/* Content Container */}
-            <div className={`flex gap-4 h-full 
+            <div className={`flex h-full w-full 
                 ${tariff.is_best
-                    ? "flex-row items-center justify-between px-6 py-8 lg:px-10 lg:py-10"
-                    : "flex-row items-center lg:flex-col lg:items-center lg:justify-between px-6 py-6 lg:px-8 lg:pt-12 lg:pb-9"}
+                    ? "flex-row items-center justify-between pl-32 py-5"
+                    : "flex-col items-center pt-20 pb-8 px-6"}
             `}>
 
                 {/* Section A: Title + Price */}
-                <div className={`flex flex-col items-center gap-1 shrink-0
-                    ${!tariff.is_best ? "lg:mb-4" : ""}
+                <div className={`flex flex-col shrink-0
+                    ${tariff.is_best ? "items-start gap-1" : "items-center gap-1 mb-10"}
                 `}>
-                    <p className="text-white/60 text-[15px] lg:text-[17px] font-medium leading-none mb-1">
+                    <p className={`text-white text-[26px] font-medium leading-tight mb-2 ${!tariff.is_best ? "text-center" : ""}`}>
                         {tariff.period}
                     </p>
                     <TariffPrice
                         price={tariff.price}
                         fullPrice={tariff.full_price}
                         discountActive={discountActive}
-                        size={tariff.is_best ? "lg" : "md"}
+                        size={tariff.is_best ? "lg" : "lg"}
                         orange={tariff.is_best}
+                        centered={!tariff.is_best}
                     />
                 </div>
 
                 {/* Section B: Description */}
                 <div className={`
                     ${tariff.is_best
-                        ? "flex-1 max-w-[180px] lg:max-w-[240px]"
-                        : "flex-1 lg:mt-auto lg:max-w-[140px]"}
+                        ? "max-w-[340px] text-left"
+                        : "mt-auto text-left w-full"}
                 `}>
-                    <p className="text-gray-400 text-[11px] lg:text-[12px] leading-snug text-left">
+                    <p className={`text-gray-300 text-[16px] leading-[1.3] text-left whitespace-pre-line`}>
                         {tariff.text}
                     </p>
                 </div>
             </div>
+
+            {/* Top-right "хит!" for wide card only */}
+            {tariff.is_best && (
+                <div className="absolute top-5 right-8 z-10">
+                    <TariffBadge type="hit" />
+                </div>
+            )}
         </div>
     );
 };

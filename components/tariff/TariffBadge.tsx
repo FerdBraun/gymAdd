@@ -9,13 +9,13 @@ interface BadgeProps {
 export const TariffBadge: React.FC<BadgeProps> = ({ type, value }) => {
     if (type === "hit") {
         return (
-            <span className="text-orange-400 font-bold uppercase tracking-widest text-[11px]">
+            <span className="text-orange-400 font-medium uppercase tracking-tight text-[15px]">
                 хит!
             </span>
         );
     }
     return (
-        <span className="bg-red-500 text-white font-black text-[11px] px-3 py-1.5 rounded-br-2xl rounded-tl-[inherit] shadow">
+        <span className="bg-[#fd4d4d] text-white font-bold text-[18px] px-4 py-1.5 rounded-bl-[14px] rounded-br-[14px] shadow-sm">
             -{value}%
         </span>
     );
