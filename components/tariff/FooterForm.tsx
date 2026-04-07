@@ -20,7 +20,7 @@ export const FooterForm: React.FC<FooterFormProps> = ({
     return (
         <div className="mt-[14px] flex flex-col items-start w-full gap-[14px]">
             {/* Comparison block - Left aligned icon and text */}
-            <div className="flex items-center gap-4 bg-[#313637] border border-[#2c2c2c] rounded-[1.5rem] px-6" style={{ width: '499px', height: '78px' }}>
+            <div className="flex items-center gap-4 bg-[#313637] border border-[#2c2c2c] rounded-[1.5rem] px-6 w-[499px] max-[1244px]:w-full h-[78px] max-[1244px]:h-auto max-[1244px]:py-4">
                 <span className="text-orange-400 font-black text-[30px] leading-none shrink-0">!</span>
                 <p className="text-[14px] text-gray-400  leading-tight text-left font-medium">
                     Следуя плану на 3 месяца и более, люди получают в 2 раза лучший результат, чем за 1 месяц
@@ -73,11 +73,10 @@ export const FooterForm: React.FC<FooterFormProps> = ({
                 </label>
             </div>
 
-            {/* Buy button - Large orange with fixed dimensions */}
+            {/* Buy button - Large orange with responsive dimensions */}
             <button
                 onClick={handleBuy}
-                className="btn-shine bg-[#f8a04b] hover:bg-[#ffae5d] active:scale-[0.98] text-[#191E1F] font-extrabold text-[20px]  tracking-wider rounded-[30px] transition-all duration-200 shadow-[0_8px_30px_rgb(0,0,0,0.5)]"
-                style={{ width: '352px', height: '66px' }}
+                className="btn-shine bg-[#f8a04b] hover:bg-[#ffae5d] active:scale-[0.98] text-[#191E1F] font-extrabold text-[20px] tracking-wider rounded-[30px] transition-all duration-200 shadow-[0_8px_30px_rgb(0,0,0,0.5)] w-[352px] max-[1244px]:w-full h-[66px]"
             >
                 Купить
             </button>
@@ -91,11 +90,11 @@ export const FooterForm: React.FC<FooterFormProps> = ({
 };
 
 export const GuaranteeBlock: React.FC = () => (
-    <div className="border border-[#484D4E] rounded-[2.2rem] flex flex-col items-start justify-center gap-6" style={{ width: '1216px', height: '231px', padding: '0 50px' }}>
+    <div className="border border-[#484D4E] rounded-[2.2rem] flex flex-col items-start justify-center gap-6 w-[1216px] max-[1244px]:w-full h-[231px] max-[1244px]:h-auto px-[50px] max-[1244px]:px-6 max-[1244px]:py-8">
         <div className="border border-[#22c55e]/50 text-[#22c55e] text-[18px] font-medium px-8 py-3 rounded-full">
             гарантия возврата 30 дней
         </div>
-        <p className="text-gray-300 text-[20px] leading-relaxed text-left max-w-275">
+        <p className="text-gray-300 text-[20px] leading-relaxed text-left max-w-275 max-[1244px]:max-w-full">
             Мы уверены, что наш план сработает для тебя и ты увидишь видимые результаты уже через 4 недели! Мы даже готовы полностью вернуть твои деньги в течение 30 дней с момента покупки, если ты не получишь видимых результатов.
         </p>
     </div>

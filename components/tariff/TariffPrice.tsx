@@ -6,7 +6,8 @@ interface TariffPriceProps {
     discountActive: boolean;
     size?: "sm" | "md" | "lg";
     orange?: boolean;
-    centered?: boolean;
+    alignClasses?: string;
+    className?: string;
 }
 
 export const TariffPrice: React.FC<TariffPriceProps> = ({
@@ -15,7 +16,8 @@ export const TariffPrice: React.FC<TariffPriceProps> = ({
     discountActive,
     size = "md",
     orange = false,
-    centered = false,
+    alignClasses = "items-start text-left",
+    className = "",
 }) => {
     const priceSize =
         size === "lg" ? "text-5xl" : size === "sm" ? "text-2xl" : "text-4xl";
@@ -24,11 +26,11 @@ export const TariffPrice: React.FC<TariffPriceProps> = ({
     const color = orange ? "text-[#FDB056]" : "text-white";
 
     return (
-        <div className={`flex flex-col ${centered ? "items-center text-center" : "items-start text-left"}`}>
+        <div className={`flex flex-col ${alignClasses} ${className}`}>
             {/* Current price */}
-            <div className={`relative overflow-hidden ${priceSize} ${color} font-black tabular-nums leading-none tracking-tight h-[1.1em] ${centered ? "text-center" : "text-left"}`}>
+            <div className={`relative overflow-hidden ${priceSize} ${color} font-black tabular-nums leading-none tracking-tight h-[1.1em] ${alignClasses.includes("text-center") ? "text-center" : "text-left"}`}>
                 <span
-                    className={`block transition-all font-semibold duration-700 ease-in-out ${centered ? "text-center" : "text-left"} ${discountActive
+                    className={`block transition-all font-semibold duration-700 ease-in-out ${alignClasses.includes("text-center") ? "text-center" : "text-left"} ${discountActive
                         ? "translate-y-0 opacity-100"
                         : "-translate-y-full opacity-0 absolute"
                         }`}
@@ -36,7 +38,7 @@ export const TariffPrice: React.FC<TariffPriceProps> = ({
                     {price}&nbsp;₽
                 </span>
                 <span
-                    className={`block transition-all font-semibold duration-700 ease-in-out ${centered ? "text-center" : "text-left"} ${!discountActive
+                    className={`block transition-all font-semibold duration-700 ease-in-out ${alignClasses.includes("text-center") ? "text-center" : "text-left"} ${!discountActive
                         ? "translate-y-0 opacity-100"
                         : "translate-y-full opacity-0 absolute"
                         }`}
@@ -47,7 +49,7 @@ export const TariffPrice: React.FC<TariffPriceProps> = ({
             {/* Old (full) price */}
             {discountActive && (
                 <span
-                    className={`${oldSize} text-[#919191] line-through tabular-nums leading-tight mt-1 transition-all duration-500 opacity-60 ${centered ? "text-center" : "text-left"} ml-20`}
+                    className={`${oldSize} text-[#919191] line-through tabular-nums leading-tight mt-1 transition-all duration-500 opacity-60 ${alignClasses.includes("text-center") ? "text-center" : "text-left"} min-[1244px]:ml-20`}
                 >
                     {fullPrice}&nbsp;₽
                 </span>

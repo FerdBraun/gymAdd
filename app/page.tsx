@@ -29,28 +29,28 @@ export default function UnifiedPage() {
       <TariffHeader timeLeft={logic.timeLeft} formatTime={logic.formatTime} />
 
       {/* Main Content Title */}
-      <h1 className="text-[40px] font-extrabold text-white mb-27.5 mr-90 text-center">
+      <h1 className="text-[40px] font-extrabold text-white mb-27.5 mr-90 max-[1244px]:mr-0 max-[1244px]:mb-10 text-center">
         Выбери подходящий для себя <span className="text-[#f8a04b]">тариф</span>
       </h1>
 
       {/* Blue Box Container (Image + Tariffs) */}
-      <div className="w-[1216px] h-[867px] relative flex flex-row items-start">
+      <div className="w-[1216px] h-[867px] max-[1244px]:w-full max-[1244px]:h-auto relative flex flex-row max-[1244px]:flex-col items-start max-[1244px]:items-center max-[1244px]:px-4">
 
         {/* Bodybuilder Image */}
-        <div className="mt-[52px] shrink-0">
+        <div className="mt-[52px] max-[1244px]:mt-0 max-[1244px]:mb-8 shrink-0">
           <Image
             src="/freepik-export.svg"
             alt="Fitness coach"
             width={380}
             height={767}
             priority
-            className="object-contain"
+            className="object-contain max-[1244px]:w-[300px] max-[1244px]:h-auto"
             style={{ width: '380px', height: '767px' }}
           />
         </div>
 
         {/* Right Tariffs Block */}
-        <div className="ml-[87px] flex-1 flex flex-col gap-[14px]">
+        <div className="ml-[87px] max-[1244px]:ml-0 flex-1 flex flex-col gap-[14px] w-full max-w-[748px]">
           {/* Forever wide card */}
           {bestTariff && (
             <TariffCard
@@ -61,8 +61,8 @@ export default function UnifiedPage() {
             />
           )}
 
-          {/* Regular cards grid */}
-          <div className="flex flex-row gap-[14px]">
+          {/* Regular cards grid / stack */}
+          <div className="flex flex-row max-[1244px]:flex-col gap-[14px]">
             {otherTariffs.map((t, idx) => (
               <TariffCard
                 key={`${t.id}-${idx}`}
